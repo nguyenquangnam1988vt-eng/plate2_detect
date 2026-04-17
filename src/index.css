@@ -1,19 +1,24 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-@import "tailwindcss";
-
-@theme {
-  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
-  --color-bg: #050505;
-  --color-accent: #00FF9C;
-  --color-surface: #121212;
-  --color-ink: #FFFFFF;
-}
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 @layer base {
-  body { @apply bg-bg text-ink font-sans antialiased overflow-hidden; }
+  body {
+    @apply bg-bg text-ink font-mono antialiased;
+  }
 }
 
-.scanner-grid { display: grid; grid-template-columns: 1fr; }
-@media (min-width: 1024px) { .scanner-grid { grid-template-columns: 1fr 400px; } }
-.label-micro { @apply text-[11px] uppercase tracking-[2px] opacity-50 font-bold; }
-.plate-display { @apply text-[64px] md:text-[82px] font-black leading-[0.9] tracking-[-3px] uppercase; }
+@layer components {
+  .label-micro {
+    @apply text-[10px] font-bold uppercase tracking-[0.2em] text-white/40;
+  }
+  .plate-display {
+    @apply text-5xl md:text-7xl font-black tracking-widest bg-gradient-to-r from-white to-accent bg-clip-text text-transparent;
+  }
+  .scanner-grid {
+    @apply grid grid-cols-1 lg:grid-cols-[1fr_380px] h-[calc(100vh-5rem)];
+  }
+  .bg-radial-gradient {
+    background: radial-gradient(circle at 20% 30%, rgba(0,255,156,0.05) 0%, #0A0A0F 90%);
+  }
+}
