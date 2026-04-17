@@ -1,35 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap');
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
-:root {
-  --bg: #050505;
-  --accent: #00FF9C;
-  --surface: #121212;
-  --ink: #FFFFFF;
+@theme {
+  --font-sans: "Inter", "Helvetica Neue", Arial, sans-serif;
+  --color-bg: #050505;
+  --color-accent: #00FF9C;
+  --color-surface: #121212;
+  --color-ink: #FFFFFF;
 }
 
-body {
-  @apply bg-[#050505] text-white font-sans antialiased overflow-hidden;
-  font-family: 'Inter', sans-serif;
+@layer base {
+  body { @apply bg-bg text-ink font-sans antialiased overflow-hidden; }
 }
 
-.scanner-grid {
-  display: grid;
-  grid-template-columns: 1fr;
-}
-
-@media (min-width: 1024px) {
-  .scanner-grid {
-    grid-template-columns: 1fr 400px;
-  }
-}
-
-.label-micro {
-  @apply text-[10px] uppercase tracking-[2px] opacity-50 font-bold;
-}
-
-.plate-display {
-  @apply text-[64px] md:text-[80px] font-black leading-[0.85] tracking-[-4px] uppercase;
-}
+.scanner-grid { display: grid; grid-template-columns: 1fr; }
+@media (min-width: 1024px) { .scanner-grid { grid-template-columns: 1fr 400px; } }
+.label-micro { @apply text-[11px] uppercase tracking-[2px] opacity-50 font-bold; }
+.plate-display { @apply text-[64px] md:text-[82px] font-black leading-[0.9] tracking-[-3px] uppercase; }
